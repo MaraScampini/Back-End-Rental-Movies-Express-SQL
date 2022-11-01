@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, INTEGER
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class ArticlesOnLoans extends Model {
@@ -10,13 +10,19 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.Articles.belongsToMany(models.Loans, {through: 'ArticlesOnLoans'});
+      models.Articles.belongsToMany(models.Loans, { through: 'ArticlesOnLoans' });
       models.Loans.belongsToMany(models.Articles, { through: 'ArticlesOnLoans' });
     }
   }
   ArticlesOnLoans.init({
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     LoanIdLoan: {
       type: DataTypes.INTEGER,
+      primaryKey: false,
       allowNull: false,
       references: {
         model: 'Loans',
@@ -25,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     ArticleIdArticle: {
       type: DataTypes.INTEGER,
+      primaryKey: false,
       allowNull: false,
       references: {
         model: 'Articles',
