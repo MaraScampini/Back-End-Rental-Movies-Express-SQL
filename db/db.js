@@ -10,7 +10,6 @@ const sequelize = new Sequelize(
     port: config.development.port,
     dialect: config.development.dialect
   }
-
 )
 
 module.exports = sequelize
