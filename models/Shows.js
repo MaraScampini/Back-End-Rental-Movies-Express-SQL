@@ -22,10 +22,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     title: DataTypes.STRING,
     original_language: DataTypes.STRING,
+    genre: DataTypes.STRING,
     poster_path: DataTypes.STRING,
     release_date: DataTypes.DATEONLY,
     vote_count: DataTypes.INTEGER,
     vote_average: DataTypes.FLOAT,
+    on_theaters: DataTypes.BOOLEAN,
     ArticleIdArticle: {
       type: DataTypes.INTEGER,
       allowNull: false,

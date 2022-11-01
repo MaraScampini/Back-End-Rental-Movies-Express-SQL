@@ -15,6 +15,9 @@ module.exports = {
       original_language: {
         type: Sequelize.STRING
       },
+      genre: {
+        type: Sequelize.STRING
+      },
       poster_path: {
         type: Sequelize.STRING
       },
@@ -26,6 +29,9 @@ module.exports = {
       },
       vote_average: {
         type: Sequelize.FLOAT
+      },
+      on_theaters: {
+        type: Sequelize.BOOLEAN
       },
       id_article: {
         allowNull: false,
