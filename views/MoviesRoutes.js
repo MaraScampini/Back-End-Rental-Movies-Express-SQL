@@ -8,7 +8,7 @@ router.get('/', MoviesControllers.getAll);
 // Pelis Top Rated
 router.get('/tr', MoviesControllers.getTopRated);
 // Pelis por ID
-router.get('/id/:id', MoviesControllers.getById);
+router.get('/:id', MoviesControllers.getById);
 // Pelis por título
 router.get('/title/:title', MoviesControllers.getByTitle);
 // Pelis por género

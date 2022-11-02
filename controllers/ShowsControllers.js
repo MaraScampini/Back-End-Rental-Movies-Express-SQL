@@ -1,8 +1,14 @@
 const ShowsControllers = {};
-const { Op } = require('sequelize');
+const { Op, Sequelize } = require('sequelize');
 const models = require('../models/index');
+const sequelize = require('../db/db')
 
 
+// Todas las series
+ShowsControllers.getAll = async (req, res) => {
+  let resp = await models.Shows.findAll();
+  res.send(resp);
+}
 // Series Top Rated
 ShowsControllers.getTopRated = async (req, res) => {
   let resp = await models.Shows.findAll({
@@ -32,9 +38,14 @@ ShowsControllers.getByTitle = async (req, res) => {
 };
 // Series con capítulo en próximos 7 días
 ShowsControllers.getByDate = async (req, res) => {
+  let resp = await sequelize.query("SELECT * FROM railway.Shows where release_date BETWEEN (CURDATE()) and (CURDATE() + INTERVAL 7 DAY)");
+  res.send(resp);
+};
+// Series en cines
+ShowsControllers.getByTheater = async (req, res) => {
   let resp = await models.Shows.findAll({
     where: {
-      
+      on_theaters: true
     }
   })
   res.send(resp);
