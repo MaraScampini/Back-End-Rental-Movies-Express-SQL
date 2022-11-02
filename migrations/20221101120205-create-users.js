@@ -10,15 +10,17 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true
       },
+      password: Sequelize.STRING,
       email: {
         type: Sequelize.STRING
       },
       date_of_sign_up: {
         type: Sequelize.DATEONLY
       },
-      RolesIdRole: {
+      RoleIdRole: {
         type: Sequelize.STRING
       }
     });

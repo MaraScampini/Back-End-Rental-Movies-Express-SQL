@@ -22,9 +22,10 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     name: DataTypes.STRING,
+    password: DataTypes.STRING,
     email: DataTypes.STRING,
     date_of_sign_up: DataTypes.DATEONLY,
-    RolesIdRole: {
+    RoleIdRole: {
       type: DataTypes.STRING,
     references: {
       model: 'Roles',
