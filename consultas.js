@@ -9,15 +9,18 @@ const showUrl = "https://api.themoviedb.org/3/tv/popular?api_key=4a447395d020b0b
 const getMovies = async () => {
   try {
     let response = await axios.get(movieUrl)
-    console.log(response.data.results)
     response.data.results.map((movie) => {
       let movie1 = {
+        id_movie: "",
         title: movie.title,
-        poster: movie.poster_path,
+        original_language: movie.original_language,
+        genre: "",
+        poster_path: movie.poster_path,
         release_date: movie.release_date,
-        vote_average: movie.vote_average,
         vote_count: movie.vote_count,
-        original_language: movie.original_language
+        vote_average: movie.vote_average,
+        on_theaters: false,
+        ArticleIdArticle: ""
       }
       console.log(movie1)
     })

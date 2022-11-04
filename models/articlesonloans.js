@@ -15,14 +15,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   ArticlesOnLoans.init({
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
     LoanIdLoan: {
       type: DataTypes.INTEGER,
-      primaryKey: false,
+      primaryKey: true,
       allowNull: false,
       references: {
         model: 'Loans',
@@ -31,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     ArticleIdArticle: {
       type: DataTypes.INTEGER,
-      primaryKey: false,
+      primaryKey: true,
       allowNull: false,
       references: {
         model: 'Articles',

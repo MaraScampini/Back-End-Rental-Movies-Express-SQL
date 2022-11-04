@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
     },
     date: DataTypes.DATEONLY,
+    end_date: DataTypes.DATEONLY,
     UserIdUser: {
       type: DataTypes.INTEGER,
       allowNull: false,

@@ -21,6 +21,9 @@ module.exports = {
       genre: {
         type: Sequelize.STRING
       },
+      description: {
+        type: Sequelize.TEXT
+      },
       poster_path: {
         type: Sequelize.STRING
       },
@@ -38,8 +41,6 @@ module.exports = {
       },
       id_article: {
         allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
         type: Sequelize.INTEGER,
         references: {
           model: 'Articles',

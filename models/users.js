@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     date_of_sign_up: DataTypes.DATEONLY,
     RoleIdRole: {
       type: DataTypes.STRING,
+      allowNull: false,
     references: {
       model: 'Roles',
       key: 'id_role'

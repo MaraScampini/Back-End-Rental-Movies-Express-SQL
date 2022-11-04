@@ -12,7 +12,8 @@ app.use(router);
 app.listen(PORT, () => {
   console.log(`Servidor levantado en el puerto ${PORT}`)
   // sequelize.sync({ force: true })
-  db.authenticate().then(() => {
+  // db.authenticate()
+  sequelize.sync({ force: true }).then(() => {
     console.log("Conectados a la DB")
   }).catch(error => {
     console.log('Se ha producido un error: ' + error)

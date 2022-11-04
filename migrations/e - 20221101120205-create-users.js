@@ -21,7 +21,12 @@ module.exports = {
         type: Sequelize.DATEONLY
       },
       RoleIdRole: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        references: {
+          model: "Roles",
+          key: "id_role"
+        }
       }
     });
   },

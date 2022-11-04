@@ -35,8 +35,6 @@ module.exports = {
       },
       id_article: {
         allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
         type: Sequelize.INTEGER,
         references: {
           model: 'Articles',
