@@ -6,6 +6,6 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZWxAZ
 Content-Type: application/json
 
 {
-  "name" : "Abeel"
+  "name" : "Abel"
 }
 

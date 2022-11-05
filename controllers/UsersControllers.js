@@ -1,7 +1,6 @@
 const UsersControllers = {};
 const models = require('../models/index');
 
-// TODO - añadir token usuario - Obtener datos de un perfil por ID
 UsersControllers.getData = async (req, res) => {
   let { email } = req.params;
   let resp = await models.Users.findAll({
@@ -10,7 +9,6 @@ UsersControllers.getData = async (req, res) => {
   res.send(resp);
 };
 
-// TODO - añadir token usuario - Actualizar los datos de un usuario
 UsersControllers.patchUser = async (req, res) => {
   const { email } = req.params;
   const user = req.body;
@@ -30,7 +28,6 @@ UsersControllers.patchUser = async (req, res) => {
   })
 };
 
-// TODO - añadir admin Eliminar un usuario
 UsersControllers.deleteUser = async (req, res) => {
   const { id } = req.params;
   let resp = await models.Users.destroy({

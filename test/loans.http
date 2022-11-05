@@ -1,0 +1,20 @@
+POST http://localhost:19000/loans/movie
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdUBnbWFpbC5jb20iLCJpZCI6Mywicm9sZSI6ImFkbWluIiwiaWF0IjoxNjY3NjgyNjI0fQ.vqb-FfZBQxroqeU4XHeYq1aog5Egd1a5n3Ll-tyMoQE
+Content-Type: application/json
+
+{
+  "email" : "pau@gmail.com",
+  "name" : "Bullet Train"
+}
+
+PATCH http://localhost:19000/loans/end
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdUBnbWFpbC5jb20iLCJpZCI6Mywicm9sZSI6ImFkbWluIiwiaWF0IjoxNjY3NjgyNjI0fQ.vqb-FfZBQxroqeU4XHeYq1aog5Egd1a5n3Ll-tyMoQE
+Content-Type: application/json
+
+{
+  "email" : "pau@gmail.com",
+  "name" : "Cerdita"
+}
+
+GET http://localhost:19000/loans/myloans/abel@gmail.com
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZWxAZ21haWwuY29tIiwiaWQiOjIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjY3NjgzMTA3fQ.ypv9Z_w8YMXk-EUeplZNX66AGN_In9newch5HxrnNcI

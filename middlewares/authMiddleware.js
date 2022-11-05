@@ -28,7 +28,7 @@ const isValidRole = (role) => (req, res, next) => {
 }
 
 const isValidUser = (email) => async (req, res, next) => {
-  email = req.params.email
+  email = req.params.email || req.body.email
   console.log(email)
   console.log(req.auth.email)
   if (req.auth?.email === email) {

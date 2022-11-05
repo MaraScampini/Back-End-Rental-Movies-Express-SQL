@@ -52,8 +52,7 @@ const authLoginController = async (req, res) => {
 	      return;
 	  }
 	  const hashedPassword = encryptPasswordService(password)
-    console.log(hashedPassword)
-    console.log(userFound.password)
+
 	  if (hashedPassword !== userFound.password){
 	    res.status(401).json({message: "Password or email incorrect"})
 	    return;
@@ -67,6 +66,7 @@ const authLoginController = async (req, res) => {
 	
 	  const jwt = jsonwebtoken.sign({
 	    email: userFound.email,
+      id: userFound.id_user,
 	    role: userFound.RoleIdRole.toLowerCase()
 	  }, secret);
 	  res.status(200).json({

@@ -1,15 +1,15 @@
-POST http://localhost:4113/auth/register
+POST http://localhost:19000/auth/register
 Content-Type: application/json
 
 {
-  "name" : "Abel",
-  "password" : "Abel1234",
-  "email" : "abel@gmail.com",
+  "name" : "Pau",
+  "password" : "Pau12345678",
+  "email" : "pau@gmail.com",
   "date_of_sign_up" : "2022-11-05",
-  "RoleIdRole" : "User"
+  "RoleIdRole" : "Admin"
 }
 
-POST http://localhost:4113/auth/login
+POST http://localhost:19000/auth/login
 Content-Type: application/json
 
 {
