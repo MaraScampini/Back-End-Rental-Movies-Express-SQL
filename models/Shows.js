@@ -25,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     genre: DataTypes.STRING,
     poster_path: DataTypes.STRING,
     release_date: DataTypes.DATEONLY,
+    next_episode: DataTypes.DATEONLY,
     vote_count: DataTypes.INTEGER,
     vote_average: DataTypes.FLOAT,
     on_theaters: DataTypes.BOOLEAN,

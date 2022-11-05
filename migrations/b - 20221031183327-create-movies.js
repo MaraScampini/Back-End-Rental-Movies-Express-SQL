@@ -39,7 +39,7 @@ module.exports = {
       on_theaters: { 
         type: Sequelize.BOOLEAN
       },
-      id_article: {
+      ArticleIdArticle: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {

@@ -38,7 +38,7 @@ ShowsControllers.getByTitle = async (req, res) => {
 };
 // Series con capítulo en próximos 7 días
 ShowsControllers.getByDate = async (req, res) => {
-  let resp = await sequelize.query("SELECT * FROM railway.Shows where release_date BETWEEN (CURDATE()) and (CURDATE() + INTERVAL 7 DAY)");
+  let resp = await sequelize.query("SELECT * FROM railway.Shows where next_episode BETWEEN (CURDATE()) and (CURDATE() + INTERVAL 7 DAY)");
   res.send(resp);
 };
 // Series en cines

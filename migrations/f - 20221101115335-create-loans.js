@@ -15,7 +15,7 @@ module.exports = {
       end_date: {
         type: Sequelize.DATEONLY
       },
-      UsersIdUser: {
+      UserIdUser: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {

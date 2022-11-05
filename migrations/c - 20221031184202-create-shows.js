@@ -18,10 +18,16 @@ module.exports = {
       genre: {
         type: Sequelize.STRING
       },
+      description: {
+        type: Sequelize.TEXT
+      },
       poster_path: {
         type: Sequelize.STRING
       },
       release_date: {
+        type: Sequelize.DATEONLY
+      },
+      next_episode: {
         type: Sequelize.DATEONLY
       },
       vote_count: {
@@ -33,7 +39,7 @@ module.exports = {
       on_theaters: {
         type: Sequelize.BOOLEAN
       },
-      id_article: {
+      ArticleIdArticle: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
