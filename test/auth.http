@@ -1,0 +1,19 @@
+POST http://localhost:4113/auth/register
+Content-Type: application/json
+
+{
+  "name" : "Abel",
+  "password" : "Abel1234",
+  "email" : "abel@gmail.com",
+  "date_of_sign_up" : "2022-11-05",
+  "RoleIdRole" : "User"
+}
+
+POST http://localhost:4113/auth/login
+Content-Type: application/json
+
+{
+  "email" : "abel@gmail.com",
+  "password" : "Abel1234"
+}
+

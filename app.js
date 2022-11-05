@@ -3,7 +3,7 @@ const db = require('./db/db');
 const { sequelize } = require('./models/index');
 const app = express();
 const router = require('./router');
-const PORT = 3000;
+const PORT = 4113;
 
 app.use(express.json());
 app.use(router);

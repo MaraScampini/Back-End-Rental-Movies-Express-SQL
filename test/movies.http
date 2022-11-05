@@ -1,0 +1,9 @@
+GET http://localhost:4001/movies/
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmEuc2NhbXBpbmkyQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2NzY2OTYwNn0.SCPYXc7vC7xpTKSNZ-qczr2pSNCZHRDenn3cL71CpJc
+GET http://localhost:3000/movies/tr
+
+GET http://localhost:3000/movies/4
+
+GET http://localhost:3000/movies/title/The Godfather
+
+GET http://localhost:3000/movies/genre/action

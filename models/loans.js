@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Loans.belongsTo(models.Users)
+      Loans.belongsTo(models.Articles)
       // Loans.belongsToMany(models.Articles, {through:'ArticlesOnLoans'})
     }
   }
@@ -29,7 +30,15 @@ module.exports = (sequelize, DataTypes) => {
       references: {
         model: 'Users',
         key: 'id_user'
+      },
+    ArticleIdArticle: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      references: {
+        model: 'Articles',
+        key: "id_article"
       }
+    }
   }}, 
   {
     sequelize,

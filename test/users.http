@@ -1,0 +1,11 @@
+GET http://localhost:4113/users/mara.scampini@gmail.com
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZWxAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2Njc2NzIwMDZ9.3uH6vYaYj7ZB9IA4dMRDKUMUoWD1MbWyVV9MXch5Kqk
+
+PATCH http://localhost:4113/users/abel@gmail.com
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZWxAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2Njc2NzIwMDZ9.3uH6vYaYj7ZB9IA4dMRDKUMUoWD1MbWyVV9MXch5Kqk
+Content-Type: application/json
+
+{
+  "name" : "Abeel"
+}
+

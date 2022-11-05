@@ -3,21 +3,16 @@ const models = require('../models/index');
 
 // TODO - añadir token usuario - Obtener datos de un perfil por ID
 UsersControllers.getData = async (req, res) => {
-  let { id } = req.params;
+  let { email } = req.params;
   let resp = await models.Users.findAll({
-    where: { id_user: id }
+    where: { email: email }
   })
   res.send(resp);
 };
-// TODO - Cambiar por register
-UsersControllers.create = async (req, res) => {
-  let user = req.body;
-  let resp = await models.Users.create(user);
-  res.send("Usuario creado con éxito");
-}
+
 // TODO - añadir token usuario - Actualizar los datos de un usuario
 UsersControllers.patchUser = async (req, res) => {
-  const { id } = req.params;
+  const { email } = req.params;
   const user = req.body;
   let resp = await models.Users.update(
     {
@@ -26,7 +21,7 @@ UsersControllers.patchUser = async (req, res) => {
       password: user.password
     },
     {
-      where: { id_user: id }
+      where: { email: email }
     }
   )
   res.json({

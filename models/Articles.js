@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Articles.hasOne(models.Movies);
       Articles.hasOne(models.Shows);
+      Articles.hasOne(models.Loans)
       // Articles.belongsToMany(models.Loans, {through: 'ArticlesOnLoans'})
     }
   }

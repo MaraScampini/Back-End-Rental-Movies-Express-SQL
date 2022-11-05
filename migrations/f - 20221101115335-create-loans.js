@@ -22,6 +22,14 @@ module.exports = {
           model: 'Users',
           key: 'id_user'
         }
+      },
+      ArticleIdArticle: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Articles',
+          key: 'id_article'
+        }
       }
     });
   },

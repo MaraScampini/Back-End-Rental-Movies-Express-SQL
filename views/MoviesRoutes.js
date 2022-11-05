@@ -3,6 +3,7 @@ const router = express.Router();
 
 const MoviesControllers = require('../controllers/MoviesControllers')
 
+
 // Todas las pelis
 router.get('/', MoviesControllers.getAll);
 // Pelis Top Rated
