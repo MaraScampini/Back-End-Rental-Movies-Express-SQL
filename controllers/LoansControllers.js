@@ -14,12 +14,13 @@ LoansControllers.LoanMovie = async (req, res) => {
       let repeated = await models.Loans.findOne({
         where: {
           UserIdUser: req.auth.id,
-          ArticleIdArticle: movie.ArticleIdArticle
+          ArticleIdArticle: movie.ArticleIdArticle,
+          end_date: null
         }
       })
       if (!repeated) {
         let resp = await models.Loans.create({
-          date: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDay()}`,
+          date: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
           end_date: null,
           UserIdUser: req.auth.id,
           ArticleIdArticle: movie.ArticleIdArticle
@@ -100,7 +101,7 @@ LoansControllers.editLoan = async (req, res) => {
     console.log(loanedMovie)
     if (body.email === req.auth?.email && movie.ArticleIdArticle === loanedMovie.ArticleIdArticle) {
       let resp = await models.Loans.update({
-        end_date: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDay()}`
+        end_date: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`
       },
         {
           where: {
@@ -127,5 +128,39 @@ LoansControllers.getMyLoans = async (req, res) => {
     message: "Here are your loans"
   })
 }
+
+LoansControllers.getAllActive = async (req, res) => {
+  let resp = await models.Loans.findAll({
+    where: {
+      end_date: null
+    }
+  })
+  // console.log(resp)
+  // const movies = [];
+  // await resp.forEach(async(resp) => {
+  //   const movie = await models.Shows.findOne({
+  //     where: {
+  //       ArticleIdArticle: resp.ArticleIdArticle
+  //     },
+  //     attributes: ['title']
+  //   })
+  //   movies.push(movie.title)
+
+  // });
+  // console.log(movies)
+
+  res.status(200).json({
+    message: "These are all the active loans",
+    resp
+  })
+}
+
+LoansControllers.getAll = async (req, res) => {
+  let resp = await models.Loans.findAll({
+  })
+  res.status(200).json({
+    message: "These are all the loans",
+    resp
+  })}
 
 module.exports = LoansControllers;
