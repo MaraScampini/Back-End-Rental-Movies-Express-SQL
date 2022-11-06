@@ -1,5 +1,6 @@
 const UsersControllers = {};
 const models = require('../models/index');
+const { encryptPasswordService } = require('../Services/AuthServices');
 
 UsersControllers.getData = async (req, res) => {
   let { email } = req.params;
@@ -10,13 +11,24 @@ UsersControllers.getData = async (req, res) => {
 };
 
 UsersControllers.patchUser = async (req, res) => {
-  const { email } = req.params;
+  const {email} = req.params;
   const user = req.body;
+  const userFound = await models.Users.findOne({
+    where: {
+      email: req.auth.email
+    }
+  })
+  console.log(userFound)
+  let newPassword = userFound.password
+  if (user.password) {
+    newPassword = encryptPasswordService(user.password)
+  }
+  
   let resp = await models.Users.update(
     {
       name: user.name,
       email: user.email,
-      password: user.password
+      password: newPassword
     },
     {
       where: { email: email }
