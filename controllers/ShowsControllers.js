@@ -14,7 +14,7 @@ ShowsControllers.getTopRated = async (req, res) => {
   let resp = await models.Shows.findAll({
     where: {
       vote_average: {
-        [Op.gt]: 7,
+        [Op.gt]: 8,
       }
     }
   })

@@ -12,7 +12,7 @@ MoviesControllers.getTopRated = async (req, res) => {
   let resp = await models.Movies.findAll({
     where: {
       vote_average: {
-        [Op.gt]: 7,
+        [Op.gt]: 8,
       }
     }
   })

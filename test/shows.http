@@ -1,9 +1,0 @@
-GET http://localhost:3000/shows/
-
-GET http://localhost:3000/shows/tr
-
-GET http://localhost:3000/shows/7
-
-GET http://localhost:3000/shows/title/The Peripheral
-
-GET http://localhost:3000/shows/rd
