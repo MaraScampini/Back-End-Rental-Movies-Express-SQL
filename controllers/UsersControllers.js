@@ -41,10 +41,10 @@ UsersControllers.patchUser = async (req, res) => {
 };
 
 UsersControllers.deleteUser = async (req, res) => {
-  const { id } = req.params;
+  const { email } = req.params;
   let resp = await models.Users.destroy({
     where: {
-      id_user: id
+      email: email
     }
   })
   res.json({

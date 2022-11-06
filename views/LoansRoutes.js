@@ -10,6 +10,7 @@ router.patch('/end', isValidUser(), LoansControllers.editLoan)
 router.get('/myloans/:email', isValidUser(), LoansControllers.getMyLoans)
 router.get('/activeloans', isValidRole("admin"), LoansControllers.getAllActive)
 router.get('/', isValidRole("admin"), LoansControllers.getAll)
+router.get('/:email', isValidRole("admin"), LoansControllers.getByUser)
 
 
 

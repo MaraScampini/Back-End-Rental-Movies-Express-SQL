@@ -53,8 +53,8 @@ const createUserService = async (userBody) => {
     name: userBody.name,
     email: userBody.email,
     password: userBody.password,
-    date_of_sign_up: userBody.date_of_sign_up,
-    RoleIdRole: userBody.RoleIdRole
+    date_of_sign_up: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+    RoleIdRole: userBody.role
   });
   return user;
 }

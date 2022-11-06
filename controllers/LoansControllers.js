@@ -61,7 +61,7 @@ LoansControllers.LoanShow = async (req, res) => {
       })
       if (!repeated) {
         let resp = await models.Loans.create({
-          date: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDay()}`,
+          date: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
           end_date: null,
           UserIdUser: req.auth.id,
           ArticleIdArticle: show.ArticleIdArticle
@@ -162,5 +162,23 @@ LoansControllers.getAll = async (req, res) => {
     message: "These are all the loans",
     resp
   })}
+
+LoansControllers.getByUser = async (req, res) => {
+  let {email} = req.params
+  let user = await models.Users.findOne({
+    where: {
+      email:email
+    }
+  })
+  let resp = await models.Loans.findAll({
+    where: {
+      UserIdUser: user.id_user
+    }
+  })
+  res.status(200).json({
+    message: `These are all the loans for ${email}`,
+    resp
+  })
+}
 
 module.exports = LoansControllers;

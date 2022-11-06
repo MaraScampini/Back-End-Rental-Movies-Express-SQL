@@ -6,7 +6,7 @@ const ShowsRoutes = require('./views/ShowsRoutes');
 const UsersRoutes = require('./views/UsersRoutes');
 const AuthRoutes = require('./views/AuthRoutes');
 const LoansRoutes = require('./views/LoansRoutes')
-const {authBearerMiddleware, isValidRole} = require("./middlewares/authMiddleware")
+const {authBearerMiddleware} = require("./middlewares/authMiddleware")
 
 router.use('/auth', AuthRoutes);
 router.use('/movies', MoviesRoutes);
