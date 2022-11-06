@@ -33,7 +33,7 @@ As the concept is a Netflix-style API, every loan can only hold one item, be it 
 
 ## Use of the API
 
-Use this button if you have Postman installed to use a set of pre-done queries to the database.
+Use this button to use a set of pre-done queries to the database.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/24034971-35f497e0-614b-4d05-906d-0999e9e4cfdf?action=collection%2Ffork&collection-url=entityId%3D24034971-35f497e0-614b-4d05-906d-0999e9e4cfdf%26entityType%3Dcollection%26workspaceId%3D575fae1e-0ea4-48f2-9118-b9c123e9f1bc)
 
