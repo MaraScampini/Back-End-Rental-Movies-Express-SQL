@@ -4,12 +4,12 @@ const models = require('../models/index');
 const sequelize = require('../db/db')
 
 
-// Todas las series
+// Get all shows
 ShowsControllers.getAll = async (req, res) => {
   let resp = await models.Shows.findAll();
   res.send(resp);
 }
-// Series Top Rated
+// Get top rated shows
 ShowsControllers.getTopRated = async (req, res) => {
   let resp = await models.Shows.findAll({
     where: {
@@ -20,7 +20,7 @@ ShowsControllers.getTopRated = async (req, res) => {
   })
   res.send(resp);
 };
-// Series por ID
+// Get shows by ID
 ShowsControllers.getById = async (req, res) => {
   let id = req.params.id;
   let resp = await models.Shows.findAll({
@@ -28,7 +28,7 @@ ShowsControllers.getById = async (req, res) => {
   })
   res.send(resp);
 };
-// Series por título
+// Get shows by title
 ShowsControllers.getByTitle = async (req, res) => {
   let title = req.params.title;
   let resp = await models.Shows.findAll({
@@ -36,12 +36,12 @@ ShowsControllers.getByTitle = async (req, res) => {
   })
   res.send(resp);
 };
-// Series con capítulo en próximos 7 días
+// Get shows with episodes airing next week
 ShowsControllers.getByDate = async (req, res) => {
   let resp = await sequelize.query("SELECT * FROM railway.Shows where next_episode BETWEEN (CURDATE()) and (CURDATE() + INTERVAL 7 DAY)");
   res.send(resp);
 };
-// Series en cines
+// Get shows with theater passes
 ShowsControllers.getByTheater = async (req, res) => {
   let resp = await models.Shows.findAll({
     where: {
@@ -50,9 +50,5 @@ ShowsControllers.getByTheater = async (req, res) => {
   })
   res.send(resp);
 }
-
-
-
-
 
 module.exports = ShowsControllers

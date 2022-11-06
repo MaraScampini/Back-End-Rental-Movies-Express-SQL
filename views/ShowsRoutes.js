@@ -3,17 +3,17 @@ const router = express.Router();
 
 const ShowsControllers = require('../controllers/ShowsControllers')
 
-// Todas las series
+// All shows
 router.get('/', ShowsControllers.getAll);
-// Series Top Rated
+// Top rated shows
 router.get('/tr', ShowsControllers.getTopRated);
-// Series por fecha de estreno
+// Shows with episodes next week
 router.get('/rd', ShowsControllers.getByDate);
-// Series en el cine
+// Shows on theaters
 router.get('/theater', ShowsControllers.getByTheater)
-// Series por título
+// Shows by title
 router.get('/title/:title', ShowsControllers.getByTitle);
-// Series por ID
+// Shows by ID
 router.get('/:id', ShowsControllers.getById);
 
 

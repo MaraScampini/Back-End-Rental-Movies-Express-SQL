@@ -2,6 +2,7 @@ const LoansControllers = {};
 const { Op } = require('sequelize');
 const models = require('../models/index');
 
+// Loan a movie
 LoansControllers.LoanMovie = async (req, res) => {
   try {
     let body = req.body;
@@ -42,7 +43,7 @@ LoansControllers.LoanMovie = async (req, res) => {
   }
 
 }
-
+// Loan a show
 LoansControllers.LoanShow = async (req, res) => {
   try {
     console.log(req.auth.id)
@@ -84,7 +85,7 @@ LoansControllers.LoanShow = async (req, res) => {
   }
 
 }
-
+// Terminate a loan
 LoansControllers.editLoan = async (req, res) => {
   try {
     let body = req.body;
@@ -116,7 +117,7 @@ LoansControllers.editLoan = async (req, res) => {
     console.error(error)
   }
 }
-
+// See my own loans
 LoansControllers.getMyLoans = async (req, res) => {
   let resp = await models.Loans.findAll({
     where: {
@@ -128,13 +129,14 @@ LoansControllers.getMyLoans = async (req, res) => {
     message: "Here are your loans"
   })
 }
-
+// See all active loans - ADMIN ONLY
 LoansControllers.getAllActive = async (req, res) => {
   let resp = await models.Loans.findAll({
     where: {
       end_date: null
     }
   })
+  // TODO Check this function
   // console.log(resp)
   // const movies = [];
   // await resp.forEach(async(resp) => {
@@ -154,7 +156,7 @@ LoansControllers.getAllActive = async (req, res) => {
     resp
   })
 }
-
+// See all loans - ADMIN ONLY
 LoansControllers.getAll = async (req, res) => {
   let resp = await models.Loans.findAll({
   })
@@ -162,7 +164,7 @@ LoansControllers.getAll = async (req, res) => {
     message: "These are all the loans",
     resp
   })}
-
+// See all loans for a user - ADMIN ONLY
 LoansControllers.getByUser = async (req, res) => {
   let {email} = req.params
   let user = await models.Users.findOne({

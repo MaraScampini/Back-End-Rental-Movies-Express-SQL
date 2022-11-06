@@ -1,6 +1,7 @@
 const models = require('../models/index');
 const crypto = require('node:crypto');
 
+// Service to assert if the structure of the password is valid - at least one lowercase, one uppercase and one number, minimum 8 characters
 const assertValidPasswordService = (pass) => {
   if (pass.length < 8) {
     throw new Error("Password must be at least 8 characters long");
@@ -19,6 +20,7 @@ const assertValidPasswordService = (pass) => {
   }
 };
 
+// Service to assert if the email structure is valid
 const assertEmailIsValidService = (email) => {
   const emailRegex =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -28,6 +30,7 @@ const assertEmailIsValidService = (email) => {
   }
 };
 
+// Service to assert if the email is already registered
 const assertEmailIsUniqueService = async (email) => {
   const user = await models.Users.findOne({
     where: {email:email}
@@ -37,6 +40,7 @@ const assertEmailIsUniqueService = async (email) => {
   }
 };
 
+// Service to encrypt a password and create a hash of said password
 const encryptPasswordService = (pass) => {
   const hash = crypto
     .createHmac("sha512", '')
@@ -45,6 +49,7 @@ const encryptPasswordService = (pass) => {
   return hash;
 }
 
+// Service to create a new user in the database
 const createUserService = async (userBody) => {
   const hash = encryptPasswordService(userBody.password);
   console.log(userBody.password)

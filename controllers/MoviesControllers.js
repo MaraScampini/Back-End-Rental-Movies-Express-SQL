@@ -2,12 +2,12 @@ const MoviesControllers = {};
 const {Op} = require('sequelize');
 const models = require('../models/index');
 
-// Todas las películas
+// Get all movies
 MoviesControllers.getAll = async (req, res) => {
   let resp = await models.Movies.findAll();
   res.send(resp);
 }
-// Películas Top Rated
+// Get top rated movies
 MoviesControllers.getTopRated = async (req, res) => {
   let resp = await models.Movies.findAll({
     where: {
@@ -18,7 +18,7 @@ MoviesControllers.getTopRated = async (req, res) => {
   })
   res.send(resp);
 }
-// Películas por ID
+// Get movies by ID
 MoviesControllers.getById = async (req, res) => {
   let id = req.params.id;
   let resp = await models.Movies.findAll({
@@ -26,7 +26,7 @@ MoviesControllers.getById = async (req, res) => {
   })
   res.send(resp);
 };
-// Películas por título
+// Get movies by title
 MoviesControllers.getByTitle = async (req, res) => {
   let title = req.params.title;
   let resp = await models.Movies.findAll({
@@ -34,7 +34,7 @@ MoviesControllers.getByTitle = async (req, res) => {
   })
   res.send(resp);
 };
-// Películas por género
+// Get movies by genre
 MoviesControllers.getByGenre = async (req, res) => {
   let genre = req.params.genre;
   let resp = await models.Movies.findAll({

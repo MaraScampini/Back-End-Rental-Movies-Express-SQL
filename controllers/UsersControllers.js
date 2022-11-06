@@ -2,6 +2,7 @@ const UsersControllers = {};
 const models = require('../models/index');
 const { encryptPasswordService } = require('../Services/AuthServices');
 
+// Get data from my own profile
 UsersControllers.getData = async (req, res) => {
   let { email } = req.params;
   let resp = await models.Users.findAll({
@@ -9,7 +10,7 @@ UsersControllers.getData = async (req, res) => {
   })
   res.send(resp);
 };
-
+// Update data from my own profile
 UsersControllers.patchUser = async (req, res) => {
   const {email} = req.params;
   const user = req.body;
@@ -39,7 +40,7 @@ UsersControllers.patchUser = async (req, res) => {
     message: "Usuario actualizado"
   })
 };
-
+// Delete a user - ADMIN ONLY
 UsersControllers.deleteUser = async (req, res) => {
   const { email } = req.params;
   let resp = await models.Users.destroy({

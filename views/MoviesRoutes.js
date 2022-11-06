@@ -4,15 +4,15 @@ const router = express.Router();
 const MoviesControllers = require('../controllers/MoviesControllers')
 
 
-// Todas las pelis
+// All movies
 router.get('/', MoviesControllers.getAll);
-// Pelis Top Rated
+// Top rated movies
 router.get('/tr', MoviesControllers.getTopRated);
-// Pelis por ID
+// Movies by ID
 router.get('/:id', MoviesControllers.getById);
-// Pelis por título
+// Movies by title
 router.get('/title/:title', MoviesControllers.getByTitle);
-// Pelis por género
+// Movies by genre
 router.get('/genre/:genre', MoviesControllers.getByGenre);
 
 module.exports = router;
