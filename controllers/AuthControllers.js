@@ -6,6 +6,7 @@ const {
   createUserService,
   encryptPasswordService
 } = require('../Services/AuthServices');
+require('dotenv').config();
 
 const jsonwebtoken = require('jsonwebtoken');
 
@@ -58,7 +59,7 @@ const authLoginController = async (req, res) => {
 	    return;
 	  }
 	
-	  const secret = "secretjsonwebtoken";
+	  const secret = process.env.JWT_SECRET;
 	
 	  if(secret.length < 10) {
 	    throw new Error("JWT_SECRET is not set");
